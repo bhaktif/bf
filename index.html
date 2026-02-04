@@ -38,10 +38,21 @@
     <h1><strong>Bhakti Firdaus</strong></h1>
     <p>Designer</p>
     <ul>
-      <li><a href="https://linkedin.com/en/bhaktif" rel="noopener noreferrer" target="_blank">Linkedin</a></li>
-      <li><a href="https://github.com/bhaktif" rel="noopener noreferrer" target="_blank">Github</a></li>
-      <li><a href="https://dribbble.com/bhaktif" rel="noopener noreferrer" target="_blank">Dribbble</a></li>
+      <li><a id="link-linkedin" data-ga-label="linkedin" href="https://linkedin.com/en/bhaktif" rel="noopener noreferrer" target="_blank">Linkedin</a></li>
+      <li><a id="link-github" data-ga-label="github" href="https://github.com/bhaktif" rel="noopener noreferrer" target="_blank">Github</a></li>
+      <li><a id="link-dribbble" data-ga-label="dribbble" href="https://dribbble.com/bhaktif" rel="noopener noreferrer" target="_blank">Dribbble</a></li>
     </ul>
     <p class="footer">BF — 2026</p>
+    <script>
+      document.querySelectorAll("a[data-ga-label]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          gtag("event", "link_click", {
+            event_category: "outbound",
+            event_label: link.dataset.gaLabel,
+            transport_type: "beacon"
+          });
+        });
+      });
+    </script>
   </body>
 </html>
